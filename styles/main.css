@@ -1,0 +1,16 @@
+body {
+    margin: 0 px;
+    padding: 0 px;
+    background-color:lightgreen;
+}
+.header {
+    display: flex;
+    border: 1px solid black;
+    margin: 10 px;
+    padding: 10 px;
+    
+    
+}
+h1 {
+    text-align: center;
+}
