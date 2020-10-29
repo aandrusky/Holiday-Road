@@ -1,5 +1,6 @@
 import { useParks, getParks } from "./ParkProvider.js"
 import { Park } from "./Park.js"
+import { getWeatherItems } from "../weather/WeatherProvider.js"
 
 const eventHub = document.querySelector(".container")
 
@@ -42,9 +43,15 @@ eventHub.addEventListener("parkSelected", parkSelectedEventObj => {
 
         const filteredParkArray = parksArray.filter((parkObj) => {
                 if(parkObj.fullName === selectedParkName) {
+                    
+                    getWeatherItems(parkObj.latitude, parkObj.longitude)
+
                     return true
                 }
                 return false
             })
+            console.log("this is my filtered park", filteredParkArray)
+
+
         render(filteredParkArray)
 })

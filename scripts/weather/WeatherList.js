@@ -39,3 +39,9 @@ const render = (weatherArray) => {   //render loops through array of weather, pu
     `
     }
 }
+
+
+//////////////
+// const filteredCriminalsArray = criminalsArray.filter(criminalObj => {
+//     return criminalObj.conviction === convictionThatWasChosen.name
+// })
