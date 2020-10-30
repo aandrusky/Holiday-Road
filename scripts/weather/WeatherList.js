@@ -1,35 +1,29 @@
-
-import "./ParkSelect"
+//THIS ENTIRE PAGE DOES NOTHING APPARENTLY
+import "../ParkSelect.js"
 import { getWeatherItems, useWeatherItems } from "./WeatherProvider.js"
 import { WeatherBlock } from "./WeatherBlock.js";
 
 const eventHub = document.querySelector(".container")
-const weatherContainer = document.querySelector(".itinerary__weather") //this is references below for rendered DOM placement
+const weatherContainer = document.querySelector(".itinerary__weather") //this is referenced below for rendered DOM placement
 
 
-eventHub.addEventListener("parkSelected", () => {
- //(step 2) listens for park clicked from button module addeventlistener
-    console.log("heard that the user selected a park")
+eventHub.addEventListener("parkSelected", parkSelectedEventObj => { //(step 2) listens for park clicked from button module addeventlistener
+  
+    const selectedParkName = parkSelectedEventObj.detail.parkThatWasChosen
 
-    WeatherList() //hoisted from  definition below.
+    console.log("heard that the user selected a park, almost time for weather")
+
+
+   render(selectedParkName)
 })
 
 
-const WeatherList = () => {
 
-    getWeatherItems()  //<-- this is what we used to get the data from the api and make it usable. This function parsed and primed our array.
-        .then(() => {
-            const weatherArray = useWeatherItems()
-            console.log(weatherArray)
-            render(weatherArray)
-        })
-}
+const render = (weatherArray) => {  
+    let weatherBlockHTMLRepresentations = ""
+    // for (const weather of weatherArray) {
 
-const render = (weatherArray) => {   //render loops through array of weather, pulling each one from weatherBlock. loads them into weatherBlockHTMLRepresentations and puts them in dom. this both creates the html and pastes it into dom
-    let witnessStatementHTMLRepresentations = ""
-    for (const weather of weatherArray) {
-
-        weatherBlockHTMLRepresentations += WeatherBlock(weather)
+    //     weatherBlockHTMLRepresentations += WeatherBlock(weather)  //<do I even need this loop? since I have no array
 
         weatherContainer.innerHTML = `
     <h3>5-Day Forecast</3>
@@ -41,7 +35,7 @@ const render = (weatherArray) => {   //render loops through array of weather, pu
 }
 
 
-//////////////
+
 // const filteredCriminalsArray = criminalsArray.filter(criminalObj => {
 //     return criminalObj.conviction === convictionThatWasChosen.name
-// })
+
