@@ -1,30 +1,43 @@
-//THIS ENTIRE PAGE DOES NOTHING APPARENTLY
-import "../ParkSelect.js"
-import { getWeatherItems, useWeatherItems } from "./WeatherProvider.js"
+import { useParks } from "../parks/ParkProvider.js";
+import { getWeatherItems } from "../weather/WeatherProvider.js"
 import { WeatherBlock } from "./WeatherBlock.js";
+import { useWeatherItems } from "./WeatherProvider.js"
 
 const eventHub = document.querySelector(".container")
-const weatherContainer = document.querySelector(".itinerary__weather") //this is referenced below for rendered DOM placement
+const weatherContainer = document.querySelector(".itinerary__weather") 
 
 
-eventHub.addEventListener("parkSelected", parkSelectedEventObj => { //(step 2) listens for park clicked from button module addeventlistener
+eventHub.addEventListener("parkSelected", parkSelectedEventObj => { 
   
     const selectedParkName = parkSelectedEventObj.detail.parkThatWasChosen
+    const parksArray =  useParks() 
 
-    console.log("heard that the user selected a park, almost time for weather")
+    console.log("heard that the user selected a park, almost time for weather", selectedParkName)  ////find park object in parks array. use 'useParks'    research find vs filter
+    
+    const filteredParkArray = parksArray.find((parkObj) => {
+        if(parkObj.fullName === selectedParkName) {
+            return true
+        }
+            return false
+    })             
 
-
-   render(selectedParkName)
+    
+    
+    getWeatherItems(filteredParkArray.latitude, filteredParkArray.longitude)
+    .then(()=> {
+        const slicedUpWeatherArray = useWeatherItems()
+        render(slicedUpWeatherArray)
+    })
 })
 
 
 
 const render = (weatherArray) => {  
     let weatherBlockHTMLRepresentations = ""
-    // for (const weather of weatherArray) {
-
-    //     weatherBlockHTMLRepresentations += WeatherBlock(weather)  //<do I even need this loop? since I have no array
-
+    
+     for (let slicedWeather of weatherArray) {
+        weatherBlockHTMLRepresentations += WeatherBlock(slicedWeather)
+     }
         weatherContainer.innerHTML = `
     <h3>5-Day Forecast</3>
     <section class="weatherList">
@@ -32,7 +45,7 @@ const render = (weatherArray) => {
     </section>
     `
     }
-}
+
 
 
 
