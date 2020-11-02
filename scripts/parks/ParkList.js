@@ -1,6 +1,7 @@
 import { useParks, getParks } from "./ParkProvider.js"
 import { Park } from "./Park.js"
 
+
 const eventHub = document.querySelector(".container")
 
 const parksContainer = document.querySelector(".itinerary__parks")
@@ -42,9 +43,15 @@ eventHub.addEventListener("parkSelected", parkSelectedEventObj => {
 
         const filteredParkArray = parksArray.filter((parkObj) => {
                 if(parkObj.fullName === selectedParkName) {
+                    
+                    
+
                     return true
                 }
                 return false
             })
+            console.log("this is my filtered park", filteredParkArray)
+
+
         render(filteredParkArray)
 })
