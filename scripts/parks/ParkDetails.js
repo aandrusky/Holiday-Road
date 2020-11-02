@@ -1,43 +1,25 @@
-import { getParks, useParks } from "./ParkProvider.js";
+import { useParks } from "./ParkProvider.js";
 
 const eventHub = document.querySelector(".container")
 
-export const ParkDetails = () => {
-    getParks()
-        .then( () => {
-        const detailsArray = useParks()
-         detailsArray.find() 
-        renderDetails(detailsArray)
-    })
-    
-}
-
 const renderDetails = (parkObj) => {
-    window.alert `
+    console.log("THis is the rendered window obj", parkObj)
+    window.alert(`
        Park Name: ${parkObj.fullName}
-       Location: ${parkObj.states}
+       Directions: ${parkObj.directionsInfo}
+       Hours: 
+        Monday-${parkObj.operatingHours[0].standardHours.wednesday}
        Description: ${parkObj.description}
-       Details: ${parkObj.details}
-    `
+       Activities: ${parkObj.activities}
+
+    `)
 }
 
 eventHub.addEventListener("detailsButtonClicked", detailClickedEventObj => {
-    console.log("details clicked event heard", detailClickedEventObj)
-    renderDetails()
-        
-}) 
-
-eventHub.addEventListener("parkSelected", parkSelectedEventObj => { 
-  
-    const selectedParkName = parkSelectedEventObj.detail.parkThatWasChosen
-    const parksArray =  useParks() 
-
-    console.log("heard that the user selected a park, almost time for weather", selectedParkName)  ////find park object in parks array. use 'useParks'    research find vs filter
+    // console.log("details clicked event heard", detailClickedEventObj)
     
-    const filteredParkArray = parksArray.find((parkObj) => {
-        if(parkObj.fullName === selectedParkName) {
-            return true
-        }
-            return false
-    })
-})            
+    const parkName = detailClickedEventObj.detail.detailWasClicked
+    const foundPark = useParks().find((park) => park.fullName === parkName) 
+       console.log(foundPark)
+    renderDetails(foundPark)
+}) 

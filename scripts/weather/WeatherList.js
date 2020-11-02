@@ -12,7 +12,7 @@ eventHub.addEventListener("parkSelected", parkSelectedEventObj => {
     const selectedParkName = parkSelectedEventObj.detail.parkThatWasChosen
     const parksArray =  useParks() 
 
-    console.log("heard that the user selected a park, almost time for weather", selectedParkName)  ////find park object in parks array. use 'useParks'    research find vs filter
+    // console.log("heard that the user selected a park, almost time for weather", selectedParkName)  ////find park object in parks array. use 'useParks'    research find vs filter
     
     const filteredParkArray = parksArray.find((parkObj) => {
         if(parkObj.fullName === selectedParkName) {

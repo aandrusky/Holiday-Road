@@ -33,7 +33,7 @@ const render = (parkArray) => {
 }
 // Listen for the custom event you dispatched in ParkSelect
 eventHub.addEventListener("parkSelected", parkSelectedEventObj => {
-    console.log("park selected event heard", parkSelectedEventObj)
+    // console.log("park selected event heard", parkSelectedEventObj)
         /*
             Filter the parks application state down to the selected park, and render to dom
         */
@@ -47,7 +47,6 @@ eventHub.addEventListener("parkSelected", parkSelectedEventObj => {
                 }
                 return false
             })
-            // console.log(filteredParkArray)
-            console.log("this is my filtered park", filteredParkArray)
+            // console.log("this is my filtered park", filteredParkArray)
          render(filteredParkArray)
 })

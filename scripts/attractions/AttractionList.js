@@ -12,7 +12,7 @@ export const AttractionList = () => {
 eventHub.addEventListener("attractionSelected", attractionSelectedObj => {
     
     const selectedAttractionName = attractionSelectedObj.detail.attractionThatWasChosen
-    console.log(selectedAttractionName)
+    // console.log(selectedAttractionName)
     const attractionArray = useAttractions();
     const filteredAttractionArray = attractionArray.filter((attractionObj) => {
       if (attractionObj.name === selectedAttractionName) {
