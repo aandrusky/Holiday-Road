@@ -23,25 +23,21 @@ const renderDetails = (parkObj) => {
 
 eventHub.addEventListener("detailsButtonClicked", detailClickedEventObj => {
     console.log("details clicked event heard", detailClickedEventObj)
-    // renderDetails()
+    renderDetails()
         
 }) 
 
-// eventHub.addEventListener("parkSelected", parkSelectedEventObj => {
-//     console.log("park selected event heard", parkSelectedEventObj)
-//         /*
-//             Filter the parks application state down to the selected park, and render to dom
-//         */
-//         const selectedParkName = parkSelectedEventObj.detail.parkThatWasChosen
+eventHub.addEventListener("parkSelected", parkSelectedEventObj => { 
+  
+    const selectedParkName = parkSelectedEventObj.detail.parkThatWasChosen
+    const parksArray =  useParks() 
 
-//         const parksArray =  useParks() 
-
-//         const filteredParkArray = parksArray.filter((parkObj) => {
-//                 if(parkObj.fullName === selectedParkName) {
-//                     return true
-//                 }
-//                 return false
-//             })
-//             // console.log(filteredParkArray)
-//         render(filteredParkArray)
-// })
+    console.log("heard that the user selected a park, almost time for weather", selectedParkName)  ////find park object in parks array. use 'useParks'    research find vs filter
+    
+    const filteredParkArray = parksArray.find((parkObj) => {
+        if(parkObj.fullName === selectedParkName) {
+            return true
+        }
+            return false
+    })
+})            
