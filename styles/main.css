@@ -1,16 +1,23 @@
 body {
     margin: 0 px;
     padding: 0 px;
-    background-color:lightgreen;
+    background-image: url("../images/holiday7.jpg");
+    opacity: 1;
 }
 .header {
     display: flex;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     margin: 10 px;
     padding: 10 px;
+    color: black;
+    font-size: 30px;
+    justify-content: space-between
     
     
 }
-h1 {
-    text-align: center;
+.quot {
+    align-self: flex-end;
+}
+h1, h4 {
+    margin: 10px;
 }
