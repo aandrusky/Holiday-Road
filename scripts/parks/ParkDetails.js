@@ -6,7 +6,7 @@ export const ParkDetails = () => {
     getParks()
         .then( () => {
         const detailsArray = useParks()
-            
+         detailsArray.find() 
         renderDetails(detailsArray)
     })
     
@@ -14,45 +14,34 @@ export const ParkDetails = () => {
 
 const renderDetails = (parkObj) => {
     window.alert `
-    <div class="park__details"> ${parkObj.fullName}
-      <p>Location: ${parkObj.states}</p>
-      <p>Description: ${parkObj.description}</p>
-      <p>Details: ${parkObj.details}</p>
-      <p>Details: ${parkObj.details}</p>
-      <p>Details: ${parkObj.details}</p> 
-    </div>;
-`
+       Park Name: ${parkObj.fullName}
+       Location: ${parkObj.states}
+       Description: ${parkObj.description}
+       Details: ${parkObj.details}
+    `
 }
 
-eventHub.addEventListener("click", (eventObj) => {
-    // build a custom event 
-    if(eventObj.target.id === "details__park") {
-        ParkDetails()
-        const myCustomEvent = new CustomEvent("detailsButtonClicked", {
-            detail: {
-                  detailWasClicked: eventObj.target.id
-              }
-              
-          })
-        // console.log("button was clicked:")
-    console.log("details button clicked", myCustomEvent)
-    // dispatch the event to the eventHub so that other modules can listen for this event
-    eventHub.dispatchEvent(myCustomEvent)
-        }
-})
-  
+eventHub.addEventListener("detailsButtonClicked", detailClickedEventObj => {
+    console.log("details clicked event heard", detailClickedEventObj)
+    // renderDetails()
+        
+}) 
 
-// const render = (parkArray) => {
-//     let parksHTMLRepresentation = ""
-//     for (const park of parkArray) {
-    
-//     parksHTMLRepresentation += Park(park)
-//     }
+// eventHub.addEventListener("parkSelected", parkSelectedEventObj => {
+//     console.log("park selected event heard", parkSelectedEventObj)
+//         /*
+//             Filter the parks application state down to the selected park, and render to dom
+//         */
+//         const selectedParkName = parkSelectedEventObj.detail.parkThatWasChosen
 
-//     parksContainer.innerHTML = `
-//             <h3>National Park</h3>
-//             <section class="parkList">
-//             ${parksHTMLRepresentation}
-//             </section>
-//             `
-// }
+//         const parksArray =  useParks() 
+
+//         const filteredParkArray = parksArray.filter((parkObj) => {
+//                 if(parkObj.fullName === selectedParkName) {
+//                     return true
+//                 }
+//                 return false
+//             })
+//             // console.log(filteredParkArray)
+//         render(filteredParkArray)
+// })

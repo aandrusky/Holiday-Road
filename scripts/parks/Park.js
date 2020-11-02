@@ -12,7 +12,6 @@ export const Park = (parkObj) => {
 eventHub.addEventListener("click", (eventObj) => {
     // build a custom event 
     if(eventObj.target.id === "details__park") {
-        ParkDetails()
         const myCustomEvent = new CustomEvent("detailsButtonClicked", {
             detail: {
                   detailWasClicked: eventObj.target.id
@@ -23,5 +22,5 @@ eventHub.addEventListener("click", (eventObj) => {
     console.log("details button clicked", myCustomEvent)
     // dispatch the event to the eventHub so that other modules can listen for this event
     eventHub.dispatchEvent(myCustomEvent)
-        }
+    }
 })
