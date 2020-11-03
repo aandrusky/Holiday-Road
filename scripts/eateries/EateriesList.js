@@ -34,7 +34,7 @@ const render = (eateryArray) => {
 }
 
 eventHub.addEventListener("eateriesSelected", eaterySelectedEventObj => {
-  console.log("eatery selected event heard")
+  // console.log("eatery selected event heard")
       
       const selectedEateryName = eaterySelectedEventObj.detail.eateryThatWasChosen
 

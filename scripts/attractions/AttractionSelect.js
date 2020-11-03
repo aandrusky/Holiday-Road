@@ -37,5 +37,5 @@ const render = (attractions) => {
     
     eventHub.dispatchEvent(attractionSelectedEvent)
 }
-console.log(changeEvent)
+// console.log(changeEvent)
 })

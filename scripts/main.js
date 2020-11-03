@@ -1,4 +1,4 @@
-console.log("We are Organ-pipe-cactus!!!")
+// console.log("We are Organ-pipe-cactus!!!")
 
 import {useAttractions} from "./attractions/AttractionProvider.js"
 import {getAttractions} from "./attractions/AttractionProvider.js"
@@ -27,4 +27,12 @@ getEateries()
 useEateries()
 EateriesSelect()
 ParkSelect()
+
+import { ItineraryForm } from "./Itineraries/ItineraryForm.js";
+import { ItineraryList } from "./Itineraries/ItineraryList.js";
+// import { buttonAvailability } from "./Itineraries/ItineraryForm.js"
+
+ItineraryForm()
+ItineraryList()
+// buttonAvailability()
 
