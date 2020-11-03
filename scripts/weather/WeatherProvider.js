@@ -8,7 +8,7 @@ export const getWeatherItems = (latitude, longitude) => { console.log("getting w
             response => response.json())
         .then(
             parsedWeatherItems => {
-                console.log(parsedWeatherItems)
+                // console.log(parsedWeatherItems)
                 weatherItems = parsedWeatherItems.daily.slice()
             }
         )

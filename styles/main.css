@@ -37,3 +37,7 @@ h1, h4 {
 
     border: 1px solid black;
 }
+.selected__park {
+    width: 200px;
+    height: 100px;
+}
