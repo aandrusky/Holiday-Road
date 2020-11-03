@@ -24,6 +24,7 @@ import { getEateries, useEateries } from "./eateries/EateryProvider.js";
 import { EateriesSelect } from "./eateries/EateriesSelector.js";
 import { Eateries } from "./eateries/Eateries.js";
 import { EateriesList } from "./eateries/EateriesList.js";
+import "./eateries/EateriesDetails.js"
 
 
 // AttractionList()
