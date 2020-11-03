@@ -3,7 +3,15 @@ import {getAttractions} from "./attractions/AttractionProvider.js"
 import {Attraction} from "./attractions/AttractionHTML.js"
 import {AttractionList} from "./attractions/AttractionList.js"
 import {AttractionSelect} from "./attractions/AttractionSelect.js"
+import  "./attractions/AttractionDetail.js"
 // import {AttractionDetails} from "./attractions/AttractionDetail.js"
+
+
+
+
+// AttractionList()
+
+
 
 import { ParkSelect } from "./parks/ParkSelect.js";
 import { ParkList } from "./parks/ParkList.js";
@@ -25,6 +33,5 @@ AttractionSelect()
 getEateries()
 useEateries()
 EateriesSelect()
-
 ParkSelect()
 // ParkList()
