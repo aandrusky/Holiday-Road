@@ -29,17 +29,19 @@ const render = (parks) => {
 }
 
 // On the event hub, listen for a "change" event.
-parksFilterContainer.addEventListener("change", (changeEvent) => {
-    // console.log(changeEvent.target.value)
-
+eventHub.addEventListener("change", (changeEvent) => {
+  
     if (changeEvent.target.id === "parkSelect") {
     
         const parkSelectedEvent = new CustomEvent("parkSelected", {
         detail: {
-            parkThatWasChosen: changeEvent.target.value 
+            parkThatWasChosen: changeEvent.target.value,
+
         }
     }) 
     // dispatch event to event hub 
     eventHub.dispatchEvent(parkSelectedEvent)
     }
+    console.log(changeEvent)
+
 })

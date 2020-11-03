@@ -24,7 +24,7 @@ eventHub.addEventListener("click", (eventObj) =>{
                 
             }
         })
-        console.log(myCustomEvent)
+        // console.log(myCustomEvent)
         //dispatch the event to the eventHub so that the other modules can listen for this event
         eventHub.dispatchEvent(myCustomEvent)
     }
