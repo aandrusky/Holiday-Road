@@ -21,3 +21,19 @@ body {
 h1, h4 {
     margin: 10px;
 }
+.filters, .filter__savedItn {
+    display: flex;
+    justify-content: space-around;
+    
+}
+.saved__itinerary{
+    text-align: center;
+    border: 5px solid black;
+}
+.weatherObj {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+
+    border: 1px solid black;
+}

@@ -39,7 +39,7 @@ const render = (weatherArray) => {
         weatherBlockHTMLRepresentations += WeatherBlock(slicedWeather)
      }
         weatherContainer.innerHTML = `
-    <h3>5-Day Forecast</3>
+    <h3>7-Day Forecast</3>
     <section class="weatherList">
         ${weatherBlockHTMLRepresentations}
     </section>
